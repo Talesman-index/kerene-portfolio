@@ -1114,6 +1114,42 @@ body.mode-slides .page-section.active-slide {
   margin-bottom: 2rem;
 }
 
+.contact-business-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2.2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(24, 32, 28, 0.08);
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.contact-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.contact-card-actions .btn-secondary {
+  justify-content: flex-start;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.contact-card-actions .btn-secondary span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* Contact Drawer Modal */
 .modal-backdrop {
   position: fixed;
