@@ -1,0 +1,577 @@
+/* ==========================================================================
+   RESPONSIVE & PRINT STYLES — LUMIÈRE PORTFOLIO
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 0 1.5rem;
+  }
+
+  .header-nav-links,
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .hero-section {
+    padding: calc(var(--header-height) + 1.5rem) 1.5rem 3rem;
+  }
+
+  .hero-container,
+  .section-intro-split,
+  .transformation-split,
+  .consultation-card-wrapper,
+  .appointment-banner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-headline {
+    font-size: 3.2rem;
+  }
+
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-cards-grid,
+  .skills-columns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .circular-cutout-frame {
+    margin: 0 auto;
+  }
+
+  .floating-dots-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  .site-header {
+    padding: 0 1rem;
+  }
+
+  .site-header .mode-toggle {
+    display: none;
+  }
+
+  .brand-name {
+    font-size: 1.15rem;
+  }
+
+  .brand-logo-img {
+    width: 26px;
+  }
+
+  .hero-section,
+  .section-padding {
+    padding: 3.5rem 1rem;
+  }
+
+  .hero-headline {
+    font-size: 2.25rem;
+    line-height: 1.12;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .section-title-large,
+  .appointment-content h2 {
+    font-size: 1.95rem;
+    line-height: 1.18;
+  }
+
+  .hero-portrait-frame {
+    max-width: 100%;
+    border: none;
+  }
+
+  .facial-annotation-tag {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.75rem;
+    width: max-content;
+    max-width: fit-content;
+    white-space: nowrap;
+  }
+
+  .tag-forehead {
+    top: 8%;
+    left: 2%;
+    right: auto;
+  }
+
+  .tag-cheek {
+    top: 50%;
+    left: 2%;
+    right: auto;
+  }
+
+  .tag-jawline {
+    bottom: 8%;
+    right: 2%;
+    left: auto;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .appointment-banner {
+    padding: 2rem 1.2rem;
+  }
+
+  .consultation-card-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .actives-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .actives-table th,
+  .actives-table td {
+    padding: 0.85rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  /* Presentation Mode Mobile Ergonomics */
+  body.mode-slides .page-section {
+    padding: 1.5rem 1rem 5.5rem;
+  }
+
+  .deck-controls {
+    bottom: 1.2rem;
+    padding: 0.45rem 0.9rem;
+    gap: 0.5rem;
+  }
+
+  .deck-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .deck-counter {
+    font-size: 0.82rem;
+  }
+}
+
+/* Print PDF Stylesheet (Strict High-End A4 Pagination: 10 Pages for 10 Sections) */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0; /* Zero margin to eliminate browser headers & file:// footers */
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #18201C !important;
+    font-size: 8.5pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Hide interactive web UI */
+  .site-header,
+  #scroll-progress,
+  .floating-dots-nav,
+  .deck-controls,
+  .hamburger-btn,
+  .mobile-nav-drawer,
+  .mobile-nav-backdrop,
+  .hero-cta-group,
+  .btn,
+  .modal-backdrop,
+  .mode-toggle,
+  .page-indicator,
+  .image-swap-toolbar,
+  .dot-tooltip,
+  .hero-checkmarks-list,
+  .comparison-handle {
+    display: none !important;
+  }
+
+  .portfolio-container {
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  /* Strict Single A4 Page per Section (297mm height) */
+  .page-section {
+    position: relative !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    min-height: 297mm !important;
+    padding: 18mm 18mm !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    overflow: hidden !important;
+    background: #FFFFFF !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-section:last-of-type {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .container-standard {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Typography Scales for Crisp Print */
+  .section-center-header {
+    text-align: center !important;
+    margin-bottom: 12mm !important;
+  }
+
+  .section-title-large {
+    font-size: 1.65rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .section-desc-lead {
+    font-size: 8.5pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .badge {
+    font-size: 7.5pt !important;
+    padding: 2px 8px !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .lime-icon-circle {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .lime-icon-circle svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Section 1: Hero Cover */
+  #page-1 {
+    background: #E6EFBE !important;
+  }
+
+  #page-1 .hero-container {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 15mm !important;
+    align-items: center !important;
+  }
+
+  #page-1 .hero-headline {
+    font-size: 2.3rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  #page-1 .hero-subtitle {
+    font-size: 8.8pt !important;
+    line-height: 1.45 !important;
+  }
+
+  #page-1 .hero-portrait-frame img {
+    max-height: 400px !important;
+  }
+
+  #page-1 .facial-annotation-tag {
+    font-size: 7pt !important;
+    padding: 0.25rem 0.6rem !important;
+    width: max-content !important;
+    max-width: fit-content !important;
+    white-space: nowrap !important;
+  }
+
+  /* Section 2: Qui suis-je ? */
+  #page-2 .section-intro-split {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr !important;
+    gap: 12mm !important;
+    margin-bottom: 8mm !important;
+  }
+
+  #page-2 .circular-cutout-frame {
+    width: 140px !important;
+    height: 140px !important;
+    border-width: 4px !important;
+  }
+
+  #page-2 .feature-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8mm !important;
+  }
+
+  #page-2 .lumiere-card {
+    padding: 10px 12px !important;
+  }
+
+  #page-2 .lumiere-card h3 {
+    font-size: 9.5pt !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  #page-2 .lumiere-card p {
+    font-size: 7.8pt !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Section 3: Mon Histoire */
+  #page-3 {
+    background: #F8F7F2 !important;
+  }
+
+  #page-3 .section-intro-split {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 12mm !important;
+    align-items: center !important;
+  }
+
+  #page-3 img {
+    max-height: 200px !important;
+  }
+
+  /* Section 4: Transformation */
+  #page-4 .transformation-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12mm !important;
+    align-items: center !important;
+  }
+
+  #page-4 .comparison-overlay {
+    clip-path: inset(0 50% 0 0) !important;
+  }
+
+  #page-4 .testimonial-box {
+    padding: 8px 12px !important;
+    margin: 8px 0 !important;
+  }
+
+  #page-4 .testimonial-quote {
+    font-size: 8pt !important;
+  }
+
+  /* Section 5: Vision Holistique (7 Cards on 1 Page - 4 top, 3 bottom) */
+  #page-5 {
+    background: #F8F7F2 !important;
+  }
+
+  #page-5 div[style*="grid-template-columns"] {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6mm !important;
+  }
+
+  #page-5 .lumiere-card {
+    padding: 8px 10px !important;
+    min-height: auto !important;
+  }
+
+  #page-5 .lumiere-card h3 {
+    font-size: 8.8pt !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  #page-5 .lumiere-card p {
+    font-size: 7.2pt !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Section 6: Dermocosmétique & Actifs */
+  #page-6 .actives-table-wrapper {
+    margin-bottom: 6mm !important;
+    box-shadow: none !important;
+    border: 1px solid #D0D8C0 !important;
+  }
+
+  #page-6 .actives-table th {
+    padding: 6px 12px !important;
+    font-size: 8.5pt !important;
+  }
+
+  #page-6 .actives-table td {
+    padding: 4px 12px !important;
+    font-size: 7.8pt !important;
+  }
+
+  #page-6 .insights-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 5mm !important;
+  }
+
+  #page-6 .insight-card {
+    box-shadow: none !important;
+    border: 1px solid #E8E7E0 !important;
+  }
+
+  #page-6 .insight-image-frame {
+    height: 65px !important;
+  }
+
+  #page-6 .insight-body {
+    padding: 6px 8px !important;
+  }
+
+  #page-6 .insight-title {
+    font-size: 8pt !important;
+  }
+
+  #page-6 .insight-desc {
+    font-size: 6.8pt !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Section 7: Conseil Client Diagnostic */
+  #page-7 .consultation-card-wrapper {
+    display: grid !important;
+    grid-template-columns: 1.2fr 0.8fr !important;
+    gap: 10mm !important;
+    padding: 10px !important;
+  }
+
+  #page-7 .diag-question-item {
+    padding: 3px 0 !important;
+  }
+
+  #page-7 .diag-num {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 7.5pt !important;
+  }
+
+  #page-7 .diag-question-item strong {
+    font-size: 8pt !important;
+  }
+
+  #page-7 .diag-question-item p {
+    font-size: 7pt !important;
+  }
+
+  /* Section 8: Valeur Ajoutée */
+  #page-8 {
+    background: #F8F7F2 !important;
+  }
+
+  #page-8 div[style*="grid-template-columns"] {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8mm !important;
+  }
+
+  #page-8 .lumiere-card {
+    padding: 10px 12px !important;
+  }
+
+  #page-8 .lumiere-card h3 {
+    font-size: 9.5pt !important;
+  }
+
+  #page-8 .lumiere-card p {
+    font-size: 7.8pt !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Section 9: Compétences */
+  #page-9 .skills-columns-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8mm !important;
+  }
+
+  #page-9 .skill-card-column {
+    padding: 12px 14px !important;
+  }
+
+  #page-9 .skill-card-column h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  #page-9 .skill-pill-item {
+    padding: 3px 6px !important;
+    font-size: 7.5pt !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Section 10: Conclusion & Contact */
+  #page-10 .appointment-banner {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 12mm !important;
+    padding: 16px !important;
+  }
+
+  #page-10 .appointment-content h2 {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  #page-10 .appointment-content p {
+    font-size: 8pt !important;
+    line-height: 1.4 !important;
+  }
+
+  #page-10 .btn-secondary {
+    display: flex !important;
+    font-size: 7.5pt !important;
+    padding: 4px 8px !important;
+    border: 1px solid rgba(24, 32, 28, 0.15) !important;
+  }
+}

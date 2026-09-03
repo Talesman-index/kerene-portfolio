@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kérène OROU ZIME — Beauté • Dermocosmétique • Nutrition • Conseil Client</title>
+  <meta name="description" content="Portfolio professionnel de Kérène OROU ZIME : Experte en Beauté, Dermocosmétique, Nutrition et Conseil Client personnalisé.">
+  
+  <link rel="icon" type="image/png" href="assets/images/logo_symbol_transparent.png">
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Global Header Navigation (Lumière Aesthetic with Kavod Gold Symbol & Dual Mode) -->
+  <header class="site-header" id="site-header">
+    <a href="#page-1" class="brand-logo" onclick="if(document.body.classList.contains('mode-slides')){ window.showSlide(1); }">
+      <img src="assets/images/logo_symbol_transparent.png" alt="Symbole Logo Doré" class="brand-logo-img">
+      <span class="brand-name">Kérène OROU ZIME</span>
+    </a>
+
+    <!-- Mode Switcher Segmented Control -->
+    <div class="mode-toggle">
+      <button id="btn-mode-scroll" class="mode-btn active" title="Affichage défilement continu">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M6 9l6-6 6 6M6 15l6 6 6-6"/></svg>
+        <span class="mode-label">Défilement</span>
+      </button>
+      <button id="btn-mode-slides" class="mode-btn" title="Mode présentation slide par slide">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="14" x="3" y="3" rx="2"/><path d="m9 8 7 4-7 4V8z"/><path d="M21 21H3"/></svg>
+        <span class="mode-label">Présentation</span>
+      </button>
+    </div>
+
+    <!-- Current Page Indicator -->
+    <div class="page-indicator">
+      <span>Page</span>
+      <span id="current-page-num">1 / 10</span>
+    </div>
+
+    <div class="header-controls">
+      <button class="btn btn-secondary btn-pill hide-on-mobile" onclick="window.print()" title="Exporter en format PDF">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        <span>PDF</span>
+      </button>
+
+      <button class="btn btn-primary btn-pill trigger-contact-modal hide-on-mobile">
+        <span>Me Contacter</span>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu principal" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <img src="assets/images/logo_symbol_transparent.png" alt="Symbole Logo Doré" class="brand-logo-img">
+        <span class="brand-name">Kérène O. Z.</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Fermer le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Mode Switcher in Mobile Drawer -->
+    <div class="mobile-drawer-section">
+      <div class="mobile-drawer-section-title">Mode d'affichage</div>
+      <div class="mode-toggle mode-toggle-mobile">
+        <button id="btn-mode-scroll-mob" class="mode-btn active">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M6 9l6-6 6 6M6 15l6 6 6-6"/></svg>
+          <span>Défilement</span>
+        </button>
+        <button id="btn-mode-slides-mob" class="mode-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="14" x="3" y="3" rx="2"/><path d="m9 8 7 4-7 4V8z"/><path d="M21 21H3"/></svg>
+          <span>Présentation</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="mobile-drawer-section">
+      <div class="mobile-drawer-section-title">Sommaire</div>
+      <ul class="mobile-nav-list">
+        <li><a href="#page-1" class="mobile-nav-link" data-page="1"><span class="mob-link-num">01</span><span>Couverture</span></a></li>
+        <li><a href="#page-2" class="mobile-nav-link" data-page="2"><span class="mob-link-num">02</span><span>Qui suis-je ? (Profil)</span></a></li>
+        <li><a href="#page-3" class="mobile-nav-link" data-page="3"><span class="mob-link-num">03</span><span>Mon histoire</span></a></li>
+        <li><a href="#page-4" class="mobile-nav-link" data-page="4"><span class="mob-link-num">04</span><span>Mon évolution</span></a></li>
+        <li><a href="#page-5" class="mobile-nav-link" data-page="5"><span class="mob-link-num">05</span><span>Vision de la beauté</span></a></li>
+        <li><a href="#page-6" class="mobile-nav-link" data-page="6"><span class="mob-link-num">06</span><span>Dermocosmétique (Actifs)</span></a></li>
+        <li><a href="#page-7" class="mobile-nav-link" data-page="7"><span class="mob-link-num">07</span><span>Conseil client</span></a></li>
+        <li><a href="#page-8" class="mobile-nav-link" data-page="8"><span class="mob-link-num">08</span><span>Valeur ajoutée</span></a></li>
+        <li><a href="#page-9" class="mobile-nav-link" data-page="9"><span class="mob-link-num">09</span><span>Compétences</span></a></li>
+        <li><a href="#page-10" class="mobile-nav-link" data-page="10"><span class="mob-link-num">10</span><span>Conclusion & Contact</span></a></li>
+      </ul>
+    </div>
+
+    <div class="mobile-drawer-footer">
+      <button class="btn btn-primary btn-pill trigger-contact-modal w-full" style="width: 100%; justify-content: center; margin-bottom: 0.6rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <span>Me Contacter</span>
+      </button>
+      <button class="btn btn-secondary btn-pill w-full" onclick="window.print()" style="width: 100%; justify-content: center;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        <span>Télécharger en PDF</span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+
+  <!-- Right Floating Dots Navigation -->
+  <nav class="floating-dots-nav" aria-label="Navigation rapide">
+    <div class="dot-nav-item active" data-page="1"><span class="dot-tooltip"><span class="slide-only-page-num">1. </span>Couverture</span></div>
+    <div class="dot-nav-item" data-page="2"><span class="dot-tooltip"><span class="slide-only-page-num">2. </span>Qui suis-je ?</span></div>
+    <div class="dot-nav-item" data-page="3"><span class="dot-tooltip"><span class="slide-only-page-num">3. </span>Mon histoire</span></div>
+    <div class="dot-nav-item" data-page="4"><span class="dot-tooltip"><span class="slide-only-page-num">4. </span>Transformation</span></div>
+    <div class="dot-nav-item" data-page="5"><span class="dot-tooltip"><span class="slide-only-page-num">5. </span>Vision de la beauté</span></div>
+    <div class="dot-nav-item" data-page="6"><span class="dot-tooltip"><span class="slide-only-page-num">6. </span>Dermocosmétique</span></div>
+    <div class="dot-nav-item" data-page="7"><span class="dot-tooltip"><span class="slide-only-page-num">7. </span>Conseil client</span></div>
+    <div class="dot-nav-item" data-page="8"><span class="dot-tooltip"><span class="slide-only-page-num">8. </span>Valeur ajoutée</span></div>
+    <div class="dot-nav-item" data-page="9"><span class="dot-tooltip"><span class="slide-only-page-num">9. </span>Compétences</span></div>
+    <div class="dot-nav-item" data-page="10"><span class="dot-tooltip"><span class="slide-only-page-num">10. </span>Contact & Conclusion</span></div>
+  </nav>
+
+  <!-- Floating Deck Controls (Visible in Slide Mode) -->
+  <div class="deck-controls" aria-label="Contrôles de présentation">
+    <button id="btn-prev-slide" class="deck-btn" aria-label="Page précédente">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <span id="deck-counter" class="deck-counter">1 / 10</span>
+    <button id="btn-next-slide" class="deck-btn" aria-label="Page suivante">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- Master Portfolio Container (Dual-Mode Container) -->
+  <main class="portfolio-container">
+
+    <!-- ==========================================================================
+         PAGE 1: COUVERTURE (HERO SECTION — EXACT LUMIÈRE COMPOSITION)
+         ========================================================================== -->
+    <section id="page-1" class="page-section hero-section hero-grid-pattern active-slide">
+      <div class="hero-container">
+        <div class="hero-left">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="badge badge-lime">Portfolio Professionnel</span>
+            <span class="badge badge-white">Nutrition & Diététique</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Là où la <em>Beauté</em><br>Rencontre la <em>Science</em>
+          </h1>
+          <p class="hero-subtitle">
+            Conseil dermocosmétique personnalisé, analyse rigoureuse des actifs INCI et approche nutritionnelle globale pour révéler l’éclat naturel de chaque peau.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-primary trigger-contact-modal">Prendre rendez-vous</button>
+            <a href="#page-2" class="btn btn-secondary" onclick="if(document.body.classList.contains('mode-slides')){ window.showSlide(2); }">Explorer mon univers</a>
+          </div>
+
+          <div class="hero-checkmarks-list">
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Conseil personnalisé
+            </span>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Expertise INCI & Actifs
+            </span>
+            <span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Approche holistique 360°
+            </span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-portrait-frame">
+            <img src="assets/images/hero_brown_skin_transparent.png" alt="Diagnostic & Expertise Cutanée — Kérène OROU ZIME">
+            
+            <!-- Floating Facial Mapping Tags (Lumière Aesthetic) -->
+            <div class="facial-annotation-tag tag-forehead">
+              <span>Diagnostic & Analyse Cutanée</span>
+            </div>
+            <div class="facial-annotation-tag tag-cheek">
+              <span>Formule Active (INCI)</span>
+            </div>
+            <div class="facial-annotation-tag tag-jawline">
+              <span>Barrière Cutanée & Éclat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 2: QUI SUIS-JE ? (À PROPOS DE MOI)
+         ========================================================================== -->
+    <section id="page-2" class="page-section section-padding">
+      <div class="container-standard">
+        <div class="section-intro-split">
+          <div>
+            <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 02 — </span>Profil & Vision</span>
+            <h2 class="section-title-large">
+              Comprendre la Peau et<br><em>Révéler sa Véritable Beauté</em>
+            </h2>
+            <p class="section-desc-lead">
+              Diplômée en <strong>Nutrition et Diététique</strong>, je suis passionnée par la santé de la peau, la dermocosmétique et le bien-être. J’aime comprendre les besoins des personnes, analyser les problématiques cutanées et proposer des conseils adaptés. Mon objectif est d’offrir une expérience client fondée sur l’écoute, la pédagogie et une vision globale de la beauté.
+            </p>
+            <div style="margin-top: 1.2rem; font-family: var(--font-serif); font-size: 1.2rem; font-style: italic; color: var(--accent-teal);">
+              « La beauté est plus qu’un produit : c’est comprendre une peau, une personne et ses besoins. »
+            </div>
+          </div>
+
+          <div class="circular-cutout-frame">
+            <img src="assets/images/real_evening_ritual.jpg" alt="Rituel bien-être et soins du soir">
+          </div>
+        </div>
+
+        <div class="feature-cards-grid">
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Écoute Active & Empathie</h3>
+            <p>
+              Identifier le vécu cutané, analyser les sensibilités et construire une recommandation réaliste et personnalisée, sans jugement ni vente forcée.
+            </p>
+          </div>
+
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Pédagogie & Science INCI</h3>
+            <p>
+              Maîtrise rigoureuse des actifs cosmétiques (Niacinamide, AHA/BHA, Vitamine C, Céramides, SPF) et vulgarisation scientifique claire pour le client.
+            </p>
+          </div>
+
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Vision Globale 360°</h3>
+            <p>
+              Compréhension approfondie du lien entre alimentation, équilibre métabolique, gestion du stress et santé globale de la barrière cutanée.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 3: MON HISTOIRE (POURQUOI LA COSMÉTIQUE ?)
+         ========================================================================== -->
+    <section id="page-3" class="page-section section-padding" style="background-color: #F8F7F2;">
+      <div class="container-standard">
+        <div class="section-intro-split">
+          <div>
+            <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 03 — </span>Parcours Personnel</span>
+            <h2 class="section-title-large">
+              Pourquoi la<br><em>Cosmétique ?</em>
+            </h2>
+            <p class="section-desc-lead" style="margin-bottom: 1rem;">
+              Pendant plus de six ans, j’ai souffert d’<strong>acné et d’hyperpigmentation</strong>, une expérience qui a profondément éveillé mon intérêt pour la cosmétique et la santé de la peau. De nature très curieuse et attentive aux détails, je n’ai jamais voulu appliquer des produits sans comprendre leur mode d’action.
+            </p>
+            <p class="section-desc-lead">
+              J’ai donc consacré des années à étudier les <strong>actifs cosmétiques</strong>, les <strong>compositions (INCI)</strong>, la <strong>littérature scientifique vulgarisée</strong> et les recommandations d’experts afin de comprendre les mécanismes de la peau et de construire une routine adaptée. Mon parcours en <strong>Nutrition et Diététique</strong> est venu renforcer cette démarche en m’apportant une compréhension du lien entre alimentation, mode de vie, inflammation et santé cutanée.
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.2rem; justify-content: center;">
+            <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); border: 6px solid #FFFFFF; max-height: 320px; aspect-ratio: 4 / 3;">
+              <img src="assets/images/real_skincare_routine.jpg" alt="Flacons de soins The Ordinary, CeraVe et La Roche-Posay" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
+            </div>
+            <div style="background: #FFFFFF; border-radius: var(--radius-lg); padding: 1.2rem 1.5rem; border-left: 4px solid var(--accent-teal); box-shadow: var(--shadow-sm);">
+              <p style="font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; color: var(--color-primary); margin: 0; line-height: 1.5;">
+                « Au fil du temps, j’ai construit une routine personnalisée qui a considérablement amélioré l’état de ma peau. Un bon conseil ne consiste pas à vendre un produit, mais à comprendre les besoins de chaque personne. »
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 4: MON ÉVOLUTION (AVANT/APRÈS AVEC SLIDER INTERACTIF)
+         ========================================================================== -->
+    <section id="page-4" class="page-section section-padding">
+      <div class="container-standard">
+        <div class="transformation-split">
+          <div class="transformation-left">
+            <span class="badge badge-lime" style="align-self: flex-start;"><span class="slide-only-page-num">Page 04 — </span>Transformation Vécue</span>
+            <h2 class="section-title-large">
+              Une Expérience Qui A Renforcé<br><em>Mes Compétences</em>
+            </h2>
+            <p class="section-desc-lead">
+              Glissez le curseur pour observer l'évolution authentique de ma peau grâce à une routine équilibrée et adaptée.
+            </p>
+
+            <div class="testimonial-box">
+              <div class="star-rating" style="display: flex; gap: 3px; color: #D4AF37;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="testimonial-quote">
+                « Cette transformation personnelle a été mon meilleur terrain d'apprentissage pour comprendre la physiologie cutanée et la patience de la régénération. »
+              </div>
+              <div class="testimonial-author">Kérène OROU ZIME</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <div style="font-weight: 700; font-size: 0.95rem; color: var(--color-primary); margin-bottom: 0.2rem;">
+                Ce que cette expérience m’a appris :
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: 0.88rem; font-weight: 600; color: var(--color-secondary);">
+                <div style="display: flex; align-items: center; gap: 0.45rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Analyser une problématique</span></div>
+                <div style="display: flex; align-items: center; gap: 0.45rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Choisir des actifs adaptés</span></div>
+                <div style="display: flex; align-items: center; gap: 0.45rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Routine réaliste</span></div>
+                <div style="display: flex; align-items: center; gap: 0.45rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Pédagogie & écoute</span></div>
+                <div style="display: flex; align-items: center; gap: 0.45rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Évolution dans le temps</span></div>
+                <div style="display: flex; align-items: center; gap: 0.45rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>L’importance de la régularité</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Before/After Split Slider with Real Photos -->
+          <div>
+            <div id="skin-comparison" class="comparison-container" title="Glissez pour comparer l'avant et l'après">
+              <!-- After Image (Base) -->
+              <img class="comparison-image" src="assets/images/real_skin_after.jpg" alt="Kérène après : Peau éclatante, unifiée et apaisée">
+              <span class="slider-badge slider-badge-after">Après : Peau Éclatante</span>
+
+              <!-- Before Image (Overlay) -->
+              <div class="comparison-overlay">
+                <img class="comparison-image" src="assets/images/real_skin_before.jpg" alt="Kérène avant : Acné et hyperpigmentation">
+                <span class="slider-badge slider-badge-before">Avant : Acné & Hyperpigmentation</span>
+              </div>
+
+              <!-- Draggable Handle -->
+              <div class="comparison-handle">
+                <div class="handle-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18-6-6 6-6M15 6l6 6-6 6"/></svg>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: center; margin-top: 0.8rem; font-size: 0.85rem; color: var(--color-muted); display: flex; align-items: center; justify-content: center; gap: 0.4rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18-6-6 6-6M15 6l6 6-6 6"/></svg>
+              <em>Glissez le curseur horizontalement (ou touchez sur mobile) pour visualiser la transformation</em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 5: MA VISION DE LA BEAUTÉ (APPROCHE HOLISTIQUE)
+         ========================================================================== -->
+    <section id="page-5" class="page-section section-padding" style="background-color: #F8F7F2;">
+      <div class="container-standard">
+        <div class="section-center-header">
+          <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 05 — </span>Vision Holistique</span>
+          <h2 class="section-title-large">
+            Ma Vision de la Beauté :<br><em>La Peau Ne Se Résume Pas à Une Crème</em>
+          </h2>
+          <p>
+            Grâce à ma formation en <strong>Nutrition et Diététique</strong>, j’ai développé une approche globale qui prend en compte aussi bien les soins cosmétiques que les facteurs essentiels liés au mode de vie.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem;">
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20a8 8 0 0 0 8-8H4a8 8 0 0 0 8 8Z"/><path d="M12 4v4M8 6l2 2M16 6l-2 2"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">L’Alimentation</h3>
+            <p>Impact direct sur la charge glycémique, les acides gras membranaires et la réduction de l'inflammation.</p>
+          </div>
+
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">Le Sommeil</h3>
+            <p>Pic de renouvellement cellulaire nocturne et réparation de la barrière cutanée.</p>
+          </div>
+
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">Le Stress</h3>
+            <p>Régulation de l'axe peau-cerveau et prévention des poussées inflammatoires induites par le cortisol.</p>
+          </div>
+
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h18"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">Les Hormones</h3>
+            <p>Prise en compte des variations cycliques sur la sécrétion de sébum et la pigmentation.</p>
+          </div>
+
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">L’Hydratation</h3>
+            <p>Apports hydriques réguliers pour maintenir la souplesse et le rebondi de l'épiderme.</p>
+          </div>
+
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">L’Environnement</h3>
+            <p>Protection active contre les UV, la pollution et les variations thermiques extérieures.</p>
+          </div>
+
+          <div class="lumiere-card" style="padding: 1.6rem;">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem;">Habitudes de Vie</h3>
+            <p>Démaquillage doux, régularité et respect scrupuleux du film hydrolipidique.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 6: MES DOMAINES DE CONNAISSANCE (DERMOCOSMÉTIQUE)
+         ========================================================================== -->
+    <section id="page-6" class="page-section section-padding insights-section">
+      <div class="container-standard">
+        <div class="section-center-header">
+          <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 06 — </span>Mes Domaines de Connaissance</span>
+          <h2 class="section-title-large">
+            Dermocosmétique
+          </h2>
+          <p style="font-size: 1.15rem; color: var(--color-primary); font-weight: 500;">
+            Je maîtrise les principales familles d’actifs utilisées dans les soins de la peau.
+          </p>
+        </div>
+
+        <!-- Table des Actifs & Utilisations (Exact User Image Content) -->
+        <div class="actives-table-wrapper">
+          <table class="actives-table">
+            <thead>
+              <tr>
+                <th style="width: 45%;">Actif</th>
+                <th style="width: 55%;">Utilisation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Niacinamide</strong></td>
+                <td>Taches, pores, rougeurs</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Acide azélaïque</strong></td>
+                <td>Hyperpigmentation</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Vitamine C</strong></td>
+                <td>Éclat</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Rétinoïdes</strong></td>
+                <td>Renouvellement cellulaire</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Acide salicylique</strong></td>
+                <td>Acné</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Acide glycolique</strong></td>
+                <td>Exfoliation</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Céramides</strong></td>
+                <td>Barrière cutanée</td>
+              </tr>
+              <tr>
+                <td><span class="actif-pill-bullet"></span><strong>Acide hyaluronique</strong></td>
+                <td>Hydratation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="insights-grid">
+          <!-- Card 1 -->
+          <div class="insight-card">
+            <div class="insight-image-frame">
+              <img src="assets/images/real_skincare_routine.jpg" alt="Routine dermocosmétique">
+            </div>
+            <div class="insight-body">
+              <span class="insight-tag">Compositions INCI</span>
+              <h3 class="insight-title">Formulation & Tolérance</h3>
+              <p class="insight-desc">
+                Comprendre la concentration et le pH des formules pour une efficacité maximale sans irriter la peau.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="insight-card">
+            <div class="insight-image-frame">
+              <img src="assets/images/real_nutrition_greens.jpg" alt="Nutrition antioxydante">
+            </div>
+            <div class="insight-body">
+              <span class="insight-tag">Synergie Nutrition</span>
+              <h3 class="insight-title">Soutien Interne & Équilibre</h3>
+              <p class="insight-desc">
+                Associer les actifs topiques aux micronutriments clés pour réguler le sébum et l'inflammation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="insight-card">
+            <div class="insight-image-frame">
+              <img src="assets/images/real_hydration_coconut.jpg" alt="Hydratation céramides">
+            </div>
+            <div class="insight-body">
+              <span class="insight-tag">Céramides & Lipides</span>
+              <h3 class="insight-title">Préservation de la Barrière</h3>
+              <p class="insight-desc">
+                Cimenter l'épiderme pour prévenir les pertes hydriques et maintenir une peau souple et résistante.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="insight-card">
+            <div class="insight-image-frame">
+              <img src="assets/images/real_evening_ritual.jpg" alt="Photoprotection & SPF">
+            </div>
+            <div class="insight-body">
+              <span class="insight-tag">Régularité & Rituels</span>
+              <h3 class="insight-title">Constance & Patience</h3>
+              <p class="insight-desc">
+                L’application méthodique et régulière des actifs est le garant indispensable d'un résultat durable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 7: COMMENT JE CONSEILLE UN CLIENT (DIAGNOSTIC EN 7 ÉTAPES)
+         ========================================================================== -->
+    <section id="page-7" class="page-section section-padding">
+      <div class="container-standard">
+        <div class="section-center-header">
+          <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 07 — </span>Méthodologie</span>
+          <h2 class="section-title-large">
+            Comment Je Conseille<br><em>Un Client</em>
+          </h2>
+          <p>
+            « Avant de recommander un produit, je cherche à comprendre. » Cette démarche me permet d’adapter mes recommandations plutôt que de proposer une solution standardisée.
+          </p>
+        </div>
+
+        <div class="consultation-card-wrapper">
+          <div>
+            <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--color-primary);">
+              Protocole d'Analyse en 7 Questions Clés
+            </h3>
+
+            <div class="diag-question-item">
+              <div class="diag-num">1</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Quel est le type de peau ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Sèche, mixte, grasse, normale ou déshydratée en surface.</p>
+              </div>
+            </div>
+
+            <div class="diag-question-item">
+              <div class="diag-num">2</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Quelle est la problématique principale ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Acné, hyperpigmentation, rougeurs, manque d'éclat, perte de fermeté.</p>
+              </div>
+            </div>
+
+            <div class="diag-question-item">
+              <div class="diag-num">3</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Depuis quand existe-t-elle ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Historique d'apparition, facteur déclencheur saisonnier ou hormonal.</p>
+              </div>
+            </div>
+
+            <div class="diag-question-item">
+              <div class="diag-num">4</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Quels produits sont déjà utilisés ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Inventaire de la routine pour repérer interactions ou sur-exfoliation.</p>
+              </div>
+            </div>
+
+            <div class="diag-question-item">
+              <div class="diag-num">5</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Existe-t-il des sensibilités ou allergies ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Réactions aux parfums, huiles essentielles, alcool, antécédents atopiques.</p>
+              </div>
+            </div>
+
+            <div class="diag-question-item">
+              <div class="diag-num">6</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Quel est le budget du client ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Proposer une routine réaliste, accessible et durable dans le temps.</p>
+              </div>
+            </div>
+
+            <div class="diag-question-item">
+              <div class="diag-num">7</div>
+              <div>
+                <strong style="font-size: 0.95rem;">Quels résultats précis sont attendus ?</strong>
+                <p style="font-size: 0.85rem; color: var(--color-muted); margin: 0;">Fixer des objectifs clairs et des paliers de progression concrets.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;">
+            <div style="background: var(--bg-body); border-radius: var(--radius-lg); padding: 1.8rem; border: 1px solid var(--color-border);">
+              <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--accent-teal); margin-bottom: 0.6rem;">
+                La Différence Kérène
+              </h4>
+              <p style="font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6;">
+                Plutôt que de pousser un produit à la mode, je co-construis avec le client une routine personnalisée, compréhensible et parfaitement adaptée à son budget.
+              </p>
+            </div>
+
+            <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 4px solid #FFFFFF; max-height: 240px;">
+              <img src="assets/images/consultation_skin.jpg" alt="Cadre de consultation beauté et dermocosmétique" style="width: 100%; height: 100%; max-height: 240px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 8: CE QUE JE PEUX APPORTER À VOTRE ENSEIGNE
+         ========================================================================== -->
+    <section id="page-8" class="page-section section-padding" style="background-color: #F8F7F2;">
+      <div class="container-standard">
+        <div class="section-center-header">
+          <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 08 — </span>Valeur Ajoutée</span>
+          <h2 class="section-title-large">
+            Ce Que Je Peux Apporter<br><em>À Votre Enseigne</em>
+          </h2>
+          <p>
+            Je souhaite offrir à chaque client qui franchit vos portes une expérience mémorable, chaleureuse et hautement professionnelle.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a2 2 0 1 1-4 0"/><path d="M15 8.5a2.5 2.5 0 0 0-5 0v2"/></svg>
+            </div>
+            <h3>Une écoute attentive</h3>
+            <p>Créer un climat de confiance immédiat où chaque personne se sent comprise et valorisée dans sa singularité.</p>
+          </div>
+
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h3>Des conseils personnalisés</h3>
+            <p>Bâtir des recommandations sur-mesure fondées sur les compositions INCI et les besoins cutanés réels.</p>
+          </div>
+
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+            </div>
+            <h3>Des recommandations adaptées</h3>
+            <p>Sélectionner les gammes les plus pertinentes en respectant scrupuleusement le budget de chaque client.</p>
+          </div>
+
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Une expérience client positive</h3>
+            <p>Transformer le conseil en un moment d’apprentissage rassurant qui génère un fort attachement et de la fidélisation.</p>
+          </div>
+
+          <div class="lumiere-card">
+            <div class="lime-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            </div>
+            <h3>Une approche globale 360°</h3>
+            <p>Associer judicieusement dermo-cosmétique, nutrition et hygiène de vie pour maximiser la satisfaction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 9: MES COMPÉTENCES (MATRICE D'EXPERTISE)
+         ========================================================================== -->
+    <section id="page-9" class="page-section section-padding">
+      <div class="container-standard">
+        <div class="section-center-header">
+          <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 09 — </span>Matrice d'Expertise</span>
+          <h2 class="section-title-large">
+            Mes Domaines de<br><em>Compétences</em>
+          </h2>
+          <p>La synergie de trois domaines complémentaires au service de la beauté.</p>
+        </div>
+
+        <div class="skills-columns-grid">
+          <!-- Conseil Client -->
+          <div class="skill-card-column">
+            <div class="lime-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <span class="badge badge-lime" style="margin-bottom: 0.4rem;">Relationnel</span>
+              <h3 style="font-size: 1.5rem; font-weight: 700;">Conseil Client</h3>
+            </div>
+            <ul class="skill-pill-list">
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Analyse approfondie des besoins</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Écoute active & empathie</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Pédagogie & communication</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Fidélisation & satisfaction</li>
+            </ul>
+          </div>
+
+          <!-- Dermocosmétique -->
+          <div class="skill-card-column">
+            <div class="lime-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <span class="badge badge-lime" style="margin-bottom: 0.4rem;">Science Cutanée</span>
+              <h3 style="font-size: 1.5rem; font-weight: 700;">Dermocosmétique</h3>
+            </div>
+            <ul class="skill-pill-list">
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Lecture des compositions INCI</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Maîtrise des actifs scientifiques</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Construction de routines sur-mesure</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Santé et barrière de la peau</li>
+            </ul>
+          </div>
+
+          <!-- Nutrition -->
+          <div class="skill-card-column">
+            <div class="lime-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div>
+              <span class="badge badge-lime" style="margin-bottom: 0.4rem;">Métabolisme & Santé</span>
+              <h3 style="font-size: 1.5rem; font-weight: 700;">Nutrition</h3>
+            </div>
+            <ul class="skill-pill-list">
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Nutrition humaine & micronutrition</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Prévention de l'inflammation</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Bien-être holistique & mode de vie</li>
+              <li class="skill-pill-item"><span class="skill-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Impact cutané des apports nutritionnels</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 10: CONCLUSION & CONTACT (AVEC SYMBOLE KAVOD ET BANNIÈRE LUMIÈRE)
+         ========================================================================== -->
+    <section id="page-10" class="page-section section-padding" style="padding-top: 2rem;">
+      <div class="container-standard">
+        <div class="appointment-banner">
+          <div class="appointment-content">
+            <span class="badge badge-lime" style="margin-bottom: 0.8rem;"><span class="slide-only-page-num">Page 10 — </span>Engagement</span>
+            <h2>
+              Bâtissons une Expérience<br><em>Client d'Exception</em>
+            </h2>
+            <p>
+              « Ma passion pour la beauté est née d’une expérience personnelle. Elle s’est développée grâce à des années de recherche, d’apprentissage et à une formation universitaire en Nutrition et Diététique. Aujourd’hui, je souhaite mettre cette double expertise au service de vos clients afin de leur offrir des conseils personnalisés, une expérience de qualité et une vision globale du bien-être. »
+            </p>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn btn-primary trigger-contact-modal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>Me contacter directement</span>
+              </button>
+
+              <button class="btn btn-secondary" onclick="window.print()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <span>Télécharger le portfolio PDF</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="background: #FFFFFF; border-radius: var(--radius-xl); padding: 2.5rem 2.2rem; box-shadow: var(--shadow-lg); border: 1px solid rgba(24, 32, 28, 0.08); text-align: center;">
+            <img src="assets/images/logo_symbol_transparent.png" alt="Symbole Noir Kérène" style="width: 52px; height: auto; margin: 0 auto 0.8rem; display: block;">
+            <div style="font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.3rem;">
+              Kérène OROU ZIME
+            </div>
+            <div style="font-size: 0.88rem; color: var(--accent-teal); font-weight: 600; margin-bottom: 1.5rem;">
+              Beauté • Dermocosmétique • Nutrition • Conseil Client
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+              <a href="mailto:kerene.orouzime@example.com" class="btn btn-secondary" style="justify-content: flex-start; padding: 0.75rem 1rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>kerene.orouzime@example.com</span>
+              </a>
+
+              <a href="tel:+33600000000" class="btn btn-secondary" style="justify-content: flex-start; padding: 0.75rem 1rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+33 6 00 00 00 00</span>
+              </a>
+
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="justify-content: flex-start; padding: 0.75rem 1rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn : Kérène OROU ZIME</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Contact Modal -->
+  <div id="contact-modal" class="modal-backdrop" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <button class="modal-close-btn trigger-close-modal" aria-label="Fermer la fenêtre">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      
+      <div style="margin-bottom: 1.5rem; text-align: center;">
+        <img src="assets/images/logo_symbol_transparent.png" alt="Symbole Noir Kérène" style="width: 44px; height: auto; margin: 0 auto 0.5rem; display: block;">
+        <span class="badge badge-lime" style="margin-bottom: 0.5rem;">Contact Direct</span>
+        <h3 style="font-size: 1.8rem; font-family: var(--font-serif);">Échanger avec Kérène</h3>
+        <p style="font-size: 0.92rem; color: var(--color-secondary);">
+          Disponible pour des missions de conseil client, marques de beauté, parapharmacies et consultations sur-mesure.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.8rem;">
+        <a href="mailto:kerene.orouzime@example.com" class="btn btn-secondary" style="justify-content: flex-start; padding: 0.85rem 1.1rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>Email : kerene.orouzime@example.com</span>
+        </a>
+
+        <a href="tel:+33600000000" class="btn btn-secondary" style="justify-content: flex-start; padding: 0.85rem 1.1rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Téléphone / WhatsApp</span>
+        </a>
+
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="justify-content: flex-start; padding: 0.85rem 1.1rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          <span>LinkedIn : Kérène OROU ZIME</span>
+        </a>
+      </div>
+
+      <button class="btn btn-primary trigger-close-modal" style="width: 100%;">Fermer</button>
+    </div>
+  </div>
+
+  <script src="js/interactive.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

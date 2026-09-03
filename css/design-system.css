@@ -1,0 +1,231 @@
+/* ==========================================================================
+   DESIGN SYSTEM — LUMIÈRE AESTHETIC FOR KÉRÈNE OROU ZIME
+   Dermocosmétique • Nutrition • Conseil Client
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+:root {
+  /* Lumiére Palette - Luminous Lime, Pure Cream & Deep Slate */
+  --bg-hero: #E6EFBE;
+  --bg-hero-gradient: linear-gradient(135deg, #EAF3C5 0%, #DFEBB2 50%, #EEF7D0 100%);
+  --bg-body: #FAF9F5;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F4F3ED;
+  --bg-card: #FFFFFF;
+
+  /* Primary Brand Colors */
+  --color-primary: #18201C;
+  --color-secondary: #4C5952;
+  --color-muted: #79877F;
+  --color-border: rgba(24, 32, 28, 0.08);
+  --color-border-subtle: rgba(24, 32, 28, 0.05);
+
+  /* Signature Lumiére Accents */
+  --accent-teal: #466358;
+  --accent-teal-dark: #334B42;
+  --accent-teal-hover: #293D36;
+  --accent-teal-light: #EBF2EE;
+
+  --accent-lime: #CEE966;
+  --accent-lime-bright: #D8F272;
+  --accent-lime-soft: #E5F3B8;
+  --accent-lime-dark: #2A3816;
+
+  --accent-terracotta: #C47963;
+  --accent-gold: #D4AF37;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Emil Kowalski Custom Easing Curves */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(24, 32, 28, 0.04);
+  --shadow-md: 0 10px 30px rgba(24, 32, 28, 0.06);
+  --shadow-lg: 0 20px 48px rgba(24, 32, 28, 0.08);
+  --shadow-card: 0 8px 24px rgba(24, 32, 28, 0.04);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --header-height: 74px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-body);
+  color: var(--color-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--color-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography styles */
+h1, h2, h3, h4, .serif-title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--color-primary);
+}
+
+h1 em, h2 em, h3 em, .italic-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+p {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* Grid overlay background effect for Hero */
+.hero-grid-pattern {
+  background-color: var(--bg-hero);
+  background-image: 
+    radial-gradient(ellipse at 85% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse at 15% 80%, rgba(206, 233, 102, 0.6) 0%, transparent 50%),
+    linear-gradient(to right, rgba(24, 32, 28, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 32, 28, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 54px 54px, 54px 54px;
+}
+
+/* Lumiére Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 160ms var(--ease-out), background-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), color 180ms;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primary Pill: Deep Slate Teal */
+.btn-primary {
+  background-color: var(--accent-teal);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(70, 99, 88, 0.25);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    background-color: var(--accent-teal-dark);
+    box-shadow: 0 6px 18px rgba(70, 99, 88, 0.35);
+    transform: translateY(-1px);
+  }
+}
+
+/* Secondary Pill: Pure White */
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border-color: rgba(24, 32, 28, 0.12);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-secondary:hover {
+    background-color: #F8F8F5;
+    border-color: rgba(24, 32, 28, 0.22);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-pill {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+/* Lime circular icon container */
+.lime-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--accent-lime);
+  color: var(--accent-lime-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-lime {
+  background-color: var(--accent-lime-soft);
+  color: var(--accent-lime-dark);
+}
+
+.badge-white {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-teal), var(--accent-lime), var(--accent-terracotta));
+  width: 0%;
+  z-index: 9999;
+  transition: width 80ms linear;
+}
