@@ -72,9 +72,19 @@
     width: 26px;
   }
 
-  .hero-section,
+  .hero-section {
+    padding-top: calc(var(--header-height) + 2.8rem) !important;
+    padding-bottom: 3.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .hero-top-badges {
+    margin-top: 0.5rem;
+  }
+
   .section-padding {
-    padding: 3.5rem 1rem;
+    padding: 4.5rem 1.25rem;
   }
 
   .hero-headline {
