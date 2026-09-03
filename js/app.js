@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const floatingDots = document.querySelectorAll('.dot-nav-item');
   const contactModal = document.getElementById('contact-modal');
 
+  // Disable browser scroll restoration so page refresh always starts cleanly at the top (Hero)
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
   // Initialize
   checkInitialHashOrStorage();
   initScrollSpy();
@@ -32,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initImageSwapManager();
 
   // Mode switching
-  function setMode(mode) {
+  function setMode(mode, shouldScroll = false) {
     state.mode = mode;
     localStorage.setItem('kerene_portfolio_mode', mode);
 
@@ -49,34 +54,37 @@ document.addEventListener('DOMContentLoaded', () => {
       modeSlidesBtn?.classList.remove('active');
       modeScrollBtnMob?.classList.add('active');
       modeSlidesBtnMob?.classList.remove('active');
-      // Scroll to current section
-      const targetSec = document.getElementById(`page-${state.currentSlide}`);
-      if (targetSec) {
-        targetSec.scrollIntoView({ behavior: 'smooth' });
+      
+      if (shouldScroll) {
+        const targetSec = document.getElementById(`page-${state.currentSlide}`);
+        if (targetSec) {
+          targetSec.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   }
 
-  modeScrollBtn?.addEventListener('click', () => setMode('scroll'));
+  modeScrollBtn?.addEventListener('click', () => setMode('scroll', true));
   modeSlidesBtn?.addEventListener('click', () => setMode('slides'));
-  modeScrollBtnMob?.addEventListener('click', () => setMode('scroll'));
+  modeScrollBtnMob?.addEventListener('click', () => setMode('scroll', true));
   modeSlidesBtnMob?.addEventListener('click', () => setMode('slides'));
 
   function checkInitialHashOrStorage() {
     const savedMode = localStorage.getItem('kerene_portfolio_mode');
-    const hash = window.location.hash;
-
-    if (hash && hash.startsWith('#page-')) {
-      const pageNum = parseInt(hash.replace('#page-', ''), 10);
-      if (pageNum >= 1 && pageNum <= state.totalSlides) {
-        state.currentSlide = pageNum;
-      }
-    }
+    
+    // Always start at Hero (Page 1) on initial visit or refresh
+    state.currentSlide = 1;
 
     if (savedMode === 'slides') {
       setMode('slides');
     } else {
-      setMode('scroll');
+      setMode('scroll', false);
+      window.scrollTo(0, 0);
+    }
+
+    // Clean URL hash on initial load so reload doesn't trigger hash jumps
+    if (window.location.hash && window.location.hash.startsWith('#page-')) {
+      history.replaceState(null, null, window.location.pathname);
     }
   }
 
