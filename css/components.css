@@ -1163,6 +1163,172 @@ body.mode-slides .page-section.active-slide {
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 160ms var(--ease-out), background-color 160ms var(--ease-out);
+}
+
+.modal-close-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: rgba(24, 32, 28, 0.1);
+}
+
+/* ==========================================================================
+   SCROLL REVEAL & STAGGER MICRO-ANIMATIONS (Emil Kowalski Philosophy)
+   ========================================================================== */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 550ms cubic-bezier(0.23, 1, 0.32, 1), transform 550ms cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* Stagger Delays for Grouped Cards */
+.stagger-1 { transition-delay: 50ms; }
+.stagger-2 { transition-delay: 110ms; }
+.stagger-3 { transition-delay: 170ms; }
+.stagger-4 { transition-delay: 230ms; }
+.stagger-5 { transition-delay: 290ms; }
+.stagger-6 { transition-delay: 350ms; }
+.stagger-7 { transition-delay: 410ms; }
+
+/* 3D Dynamic Card Tilt & Sheen */
+.lumiere-card,
+.skill-card-column,
+.insight-card {
+  position: relative;
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 280ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lumiere-card:hover,
+  .skill-card-column:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 16px 36px -8px rgba(24, 32, 28, 0.12);
+  }
+
+  .lumiere-card:hover .lime-icon-circle,
+  .skill-card-column:hover .lime-icon-circle {
+    transform: scale(1.12) rotate(4deg);
+  }
+
+  .insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .insight-card:hover .insight-image-frame img {
+    transform: scale(1.08);
+  }
+}
+
+.lime-icon-circle {
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), background-color 220ms ease;
+}
+
+/* Floating Breathing Motion for Hero Cutout */
+.hero-portrait-frame img {
+  animation: heroSubtleFloat 7s ease-in-out infinite;
+}
+
+@keyframes heroSubtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* Floating Antigravity Animations for Diagnostic Tags */
+.tag-forehead {
+  animation: tagFloat1 6s ease-in-out infinite;
+}
+
+.tag-cheek {
+  animation: tagFloat2 5.5s ease-in-out infinite 0.6s;
+}
+
+.tag-jawline {
+  animation: tagFloat3 6.5s ease-in-out infinite 1.2s;
+}
+
+@keyframes tagFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes tagFloat2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(5px); }
+}
+
+@keyframes tagFloat3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Tactile Spring Buttons */
+.btn {
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* Sparkle Burst Particles for Fun Micro-Interactions */
+.sparkle-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-lime);
+  box-shadow: 0 0 10px #D8E678;
+  z-index: 9999;
+  animation: sparklePop 700ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes sparklePop {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0.2);
+  }
+}
+
+/* Interactive Table Hover Accent */
+.actives-table tbody tr {
+  transition: background-color 160ms ease, transform 160ms var(--ease-out);
+}
+
+.actives-table tbody tr:hover {
+  background-color: rgba(216, 230, 120, 0.28) !important;
+  transform: translateX(4px);
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  height: 36px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
